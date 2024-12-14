@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Verification</title>
+  <script src="https://www.google.com/recaptcha/api.js?render=your-site-key"></script>
+  <script>
+    function verifyHuman() {
+      grecaptcha.ready(function () {
+        grecaptcha.execute('your-site-key', {action: 'submit'}).then(function (token) {
+          // Send token to server (if required) or validate client-side
+          if (token) {
+            // Redirect to WhatsApp
+            window.location.href = "https://wa.me/436509446990?text=Hello%20Christian,%20I%20would%20like%20to%20discuss...";
+          } else {
+            alert('Verification failed. Please try again.');
+          }
+        });
+      });
+    }
+  </script>
+</head>
+<body>
+  <h1>Verify You're Human</h1>
+  <p>Click the button below to contact me on WhatsApp:</p>
+  <button onclick="verifyHuman()">Verify & Contact</button>
+</body>
+</html>
